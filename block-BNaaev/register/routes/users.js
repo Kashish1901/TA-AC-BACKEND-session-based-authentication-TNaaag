@@ -17,7 +17,7 @@ router.get("/register", async (req, res, next) => {
 router.post("/register", async (req, res, next) => {
   try {
     var user = await User.create(req.body);
-    console.log(user);
+    res.redirect("/users");
   } catch (err) {
     next(err);
   }
