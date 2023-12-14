@@ -17,6 +17,10 @@
         width: 600px;
       "
     >
+      <h2 style="text-align: center; font-size: 32px">Login</h2>
+      <% if(error) { %>
+      <p style="color: red"><%= error %></p>
+      <% } %>
       <input
         type="text"
         name="email"
