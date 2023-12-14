@@ -18,6 +18,9 @@
         width: 600px;
       "
     >
+      <% if(error) { %>
+      <p style="color: red"><%= error %></p>
+      <% } %>
       <input
         type="text"
         name="name"
