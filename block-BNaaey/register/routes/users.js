@@ -9,7 +9,6 @@ router.get("/", function (req, res, next) {
 router.get("/register", async (req, res, next) => {
   try {
     res.render("register.ejs");
-    console.log(session);
   } catch (err) {
     next(err);
   }
@@ -18,7 +17,7 @@ router.get("/register", async (req, res, next) => {
 router.post("/register", async (req, res, next) => {
   try {
     var user = await User.create(req.body);
-    res.redirect("/users");
+    res.redirect("/users/login");
   } catch (err) {
     next(err);
   }
@@ -32,19 +31,21 @@ router.post("/login", async (req, res, next) => {
   try {
     var { email, password } = req.body;
     if (!email || !password) {
-      res.redirect("/users/login");
+      return res.redirect("/users/login");
     }
     var user = await User.findOne({ email });
+    console.log(req.body, user);
     if (!user) {
-      res.redirect("/users/login");
+      return res.redirect("/users/login");
     }
     user.verifyPassword(password, (err, result) => {
       if (err) return next(err);
       if (!result) {
-        res.redirect("/users/login");
+        return res.redirect("/users/login");
       }
+      console.log("logged user in!");
       req.session.userId = user.id;
-      res.redirect("/users");
+      res.redirect("/dashboard");
     });
   } catch (err) {
     next(err);
