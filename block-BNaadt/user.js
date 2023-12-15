@@ -10,9 +10,15 @@ router.get("/register", async (req, res, next) => {
 router.post("/register", async (req, res, next) => {
   try {
     var user = await User.create(req.body);
-    if (user.password.length < 4) {
-      req.flash("error", "Password should have min 4 charcters");
-      res.redirect("/users/register");
+    if (err) {
+      if (err.name === "MongoError") {
+        req.flash("error", "Email already taken!");
+        return res.redirect("/users/register");
+      }
+      if (err.name === "ValidationError") {
+        req.flash("error", err.message);
+        return res.redirect("/users/register");
+      }
     } else {
       res.redirect("/users/login");
     }
