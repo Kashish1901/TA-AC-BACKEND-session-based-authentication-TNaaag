@@ -29,6 +29,6 @@ userSchema.methods.verifyPassword = function (password, cb) {
 };
 
 userSchema.methods.fullName = function () {
-  return `${firstname} + ${lastname}`;
+  return `${this.firstname} + ${this.lastname}`;
 };
 module.exports = mongoose.model("User", (y = userSchema));
