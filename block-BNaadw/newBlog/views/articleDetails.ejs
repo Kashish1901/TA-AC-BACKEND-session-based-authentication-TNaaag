@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= article.title %></h1>
+    <h2><%= article.author %></h2>
+   
+    <p><%= article.description %></p>
+    <h4><%= article.likes ? article.likes : 0 %></h4>
+
+    <div class="flex">
+      <a href="/users/articles/<%= article.id %>/likes">
+        <button
+          style="
+            color: white;
+            background-color: blue;
+            border: 1px solid black;
+            padding: 12px;
+            text-align: right;
+            border-radius: 4px;
+          "
+        >
+          Likes
+        </button>
+      </a>
+      <a href="/users/articles/<%= article.id %>/dislikes">
+        <button
+          style="
+            color: white;
+            background-color: rgb(255, 0, 4);
+            border: 1px solid black;
+            padding: 12px;
+            text-align: right;
+            border-radius: 4px;
+          "
+        >
+          dislikes
+        </button>
+      </a>
+      <a href="/users/articles/<%= article.id %>/edit">
+        <button
+          style="
+            color: white;
+            background-color: green;
+            border: 1px solid black;
+            padding: 12px;
+            text-align: left;
+            border-radius: 4px;
+          "
+        >
+          Edit
+        </button>
+      </a>
+      <a href="/users/articles/<%= article.id %>/delete">
+        <button
+          style="
+            color: white;
+            background-color: blue;
+            border: 1px solid black;
+            padding: 12px;
+            text-align: right;
+            border-radius: 4px;
+          "
+        >
+          Delete
+        </button>
+      </a>
+    </div>
+    <div>
+      <form
+        action="/users/articles/<%= article.id %>/comments"
+        method="POST"
+        style="
+          display: flex;
+          flex-direction: column;
+          border: 1px solid black;
+          width: 350px;
+          padding: 10px;
+          margin-top: 10px;
+          background-color: lightcyan;
+        "
+      >   
+</body>
+</html>

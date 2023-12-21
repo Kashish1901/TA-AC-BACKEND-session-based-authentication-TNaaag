@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 style="text-align: center">Fill The Details</h1>
+    <form
+      action="/users/articles"
+      method="POST"
+      style="
+        margin: 0 auto;
+        border: 1px solid black;
+        padding: 20px;
+        text-align: center;
+        width: 600px;
+      "
+    >
+      <input
+        type="text"
+        name="title"
+        placeholder="Enter title "
+        style="
+          width: 90%;
+          height: 50px;
+          padding: 6px;
+          margin: 5px;
+          font-size: 20px;
+        "
+      />
+      <textarea
+        name="description"
+        rows="4"
+        placeholder="Enter valid description"
+        style="
+          width: 90%;
+          height: 50px;
+          padding: 6px;
+          margin: 5px;
+          font-size: 20px;
+        "
+      >
+      Description....
+      </textarea>
+
+      <input
+        type="text"
+        name="author"
+        placeholder="Author Name"
+        style="
+          width: 90%;
+          height: 50px;
+          padding: 6px;
+          margin: 0 auto;
+          font-size: 20px;
+        "
+      />
+      <input
+        type="number"
+        name="likes"
+        placeholder="Likes"
+        style="
+          width: 90%;
+          height: 50px;
+          padding: 6px;
+          margin: 5px;
+          font-size: 20px;
+        "
+      />
+      <input
+        type="submit"
+        value="Add Article"
+        style="
+          margin: 0 auto;
+          background-color: green;
+          color: white;
+          padding: 10px;
+          font-size: 20px;
+          border-radius: 4px;
+          margin-top: 10px;
+        "
+      />
+    </form>
+  </body>
+</html>
