@@ -15,15 +15,20 @@ router.get("/", function (req, res, next) {
 // res.render("register.ejs", { error });
 //});
 router.get("/register", (req, res) => {
-  console.log(req.session);
-  res.render("register.ejs");
+  var error = req.flash("error")[0];
+  console.log(error);
+  res.render("register.ejs", { error });
 });
 router.post("/register", async (req, res, next) => {
   try {
     var user = await User.create(req.body);
     return res.redirect("/users/login");
   } catch (err) {
-    return next(err);
+    console.log(err.code);
+    if (err.code === 11000) {
+      req.flash("error", "duplicate Email");
+    }
+    res.redirect("/users/register");
   }
 });
 

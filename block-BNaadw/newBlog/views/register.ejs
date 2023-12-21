@@ -18,6 +18,9 @@
       "
     >
       <h1 style="text-align: center">Fill your Registration Details</h1>
+      <% if(error) { %>
+      <p style="color: red; font-weight: 700; font-size: 15px"><%= error %></p>
+      <% } %>
       <input
         type="text"
         name="firstname"
